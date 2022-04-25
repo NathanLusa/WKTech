@@ -139,10 +139,12 @@ begin
       AQuery.Connection := DataModuleConexao.GetConnection;
       AQuery.SQL.Clear;
       AQuery.SQL.Add('DELETE FROM PEDIDO_ITEM WHERE PEDIDO = :PEDIDO');
+      AQuery.ParamByName('PEDIDO').AsInteger := NumeroPedido;
       AQuery.ExecSQL;
 
       AQuery.SQL.Clear;
-      AQuery.SQL.Add('DELETE FROM PEDIDO WHERE PEDIDO = :PEDIDO');
+      AQuery.SQL.Add('DELETE FROM PEDIDO WHERE NUMERO = :PEDIDO');
+      AQuery.ParamByName('PEDIDO').AsInteger := NumeroPedido;
       AQuery.ExecSQL;
     finally
       AQuery.Free;
