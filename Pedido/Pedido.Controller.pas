@@ -130,8 +130,6 @@ function TPedidoController.ExcluirPedido(NumeroPedido: Integer): Boolean;
 var
   AQuery: TFDQuery;
 begin
-  Result := False;
-
   DataModuleConexao.GetConnection.StartTransaction;
   try
     AQuery := TFDQuery.Create(nil);
