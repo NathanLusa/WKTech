@@ -151,6 +151,7 @@ begin
     end;
 
     DataModuleConexao.GetConnection.Commit;
+    Result := True;
   except
     DataModuleConexao.GetConnection.Rollback;
     raise;
